@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  codigo: MyString
+  fecha: 2022-03-28
+  monto: 1.5
+  descripcion: MyText
+  State: one
+  Client: one
+
+two:
+  nombre: MyString
+  codigo: MyString
+  fecha: 2022-03-28
+  monto: 1.5
+  descripcion: MyText
+  State: two
+  Client: two
