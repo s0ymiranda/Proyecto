@@ -11,14 +11,16 @@
     </div>
   <% end %>
 
-  <div>
+
+
+<div>
     <%= form.label :nombre, style: "display: block" %>
     <%= form.text_field :nombre %>
   </div>
 
   <div>
     <%= form.label :codigo, style: "display: block" %>
-    <%= form.text_field :codigo %>
+    <%= form.number_field :codigo %>
   </div>
 
   <div>
@@ -37,15 +39,15 @@
   </div>
 
   <div>
-    <%= form.label :State_id, style: "display: block" %>
-    <%= form.text_field :State_id %>
-  </div>
-
-  <div>
     <%= form.label :Client_id, style: "display: block" %>
-    <%= form.text_field :Client_id %>
+    <%= form.collection_select :Client_id, Client.all, :id, :nombre, class:"form-select"%>
+  </div>
+  <div>
+    <%= form.label :State_id, style: "display: block" %>
+    <%= form.collection_select :State_id, State.all, :id, :nombre, class:"form-select" %>
   </div>
 
+  <br>
   <div>
     <%= form.submit %>
   </div>

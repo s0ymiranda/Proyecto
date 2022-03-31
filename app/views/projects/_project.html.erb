@@ -1,37 +1,22 @@
-<div id="<%= dom_id project %>">
-  <p>
-    <strong>Nombre:</strong>
-    <%= project.nombre %>
-  </p>
-
-  <p>
-    <strong>Codigo:</strong>
-    <%= project.codigo %>
-  </p>
-
-  <p>
-    <strong>Fecha:</strong>
-    <%= project.fecha %>
-  </p>
-
-  <p>
-    <strong>Monto:</strong>
-    <%= project.monto %>
-  </p>
-
-  <p>
-    <strong>Descripcion:</strong>
-    <%= project.descripcion %>
-  </p>
-
-  <p>
-    <strong>State:</strong>
-    <%= project.State_id %>
-  </p>
-
-  <p>
-    <strong>Client:</strong>
-    <%= project.Client_id %>
-  </p>
-
-</div>
+<table class="table table-success table-striped table-bordered">
+  <thead>
+    <tr>
+     <th scope="col">#Code</th>
+      <th scope="col">Project's Name</th>
+      <th scope="col">Start date</th>
+      <th scope="col">Valor</th>
+      <th scope="col">Description </th>
+      <th scope="col">Belongs to the Client </th>
+      <th scope="col">Current Status </th>
+    </tr>
+  </thead>
+  <tbody>
+      <td><%= project.codigo %></td>
+      <td><%= project.nombre %></td>
+      <td><%= project.fecha %></td>
+      <td><%= project.monto %></td>
+      <td><%= project.descripcion %></td>
+      <td><%= project.Client.nombre %></td>
+      <td><%= project.State.nombre %></td>
+      </tbody>
+</table>

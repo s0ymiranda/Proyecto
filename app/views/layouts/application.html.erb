@@ -16,13 +16,14 @@
     <%= javascript_importmap_tags %>
   </head>
 
-<body>
-<% content_for(:sidebar) do %>
-<%= render :partial => "home/sidebar" %>
-<%end%>
-<div class="row">
+    <%= render 'home/sidebar' %>
+    <div class="container">
+    <br>
+      <% if notice %>
+      <% render 'layouts/alerts'%>
+      <% end %>
 
-      <%= yield :sidebar %>
-    <%= yield%>
+      <br/>
+      <%= yield %>
     </div>
-  </body>
+   

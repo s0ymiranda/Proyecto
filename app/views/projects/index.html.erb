@@ -1,14 +1,41 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Projects</h1>
+<h1>Projects List</h1>
+<table class="table table-success table-striped table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#Code</th>
+      <th scope="col">Project's Name</th>
+      <th scope="col">Start date</th>
+      <th scope="col">Value</th>
+      <th scope="col">Description </th>
+      <th scope="col">Belongs to the Client </th>
+      <th scope="col">Current Status </th>
+      <th scope="col">More options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+     
+      <td><%= project.codigo %></td>
+      <td><%= project.nombre %></td>
+      <td><%= project.fecha %></td>
+      <td><%= project.monto %></td>
+      <td><%= project.descripcion %></td>
+      <td><%= project.Client.nombre %></td>
+      <td><%= project.State.nombre %></td>
+      <td>  <%= link_to "See more", project %> |
+      <%= link_to "Edit this project", edit_project_path(project.id) %> |
+      <%= link_to "Destroy this project", @project, method: :delete %>
+       </td>
+      </tr>
+   <% end %>
+   </tbody>
+</table>
 
-<div id="projects">
-  <% @projects.each do |project| %>
-    <%= render project %>
-    <p>
-      <%= link_to "Show this project", project %>
-    </p>
-  <% end %>
-</div>
 
-<%= link_to "New project", new_project_path %>
+    <%= link_to "New Project", new_project_path, class:"btn btn-secondary" %>
+
+
+
