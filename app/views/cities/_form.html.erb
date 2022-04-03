@@ -17,8 +17,8 @@
   </div>
 
   <div>
-    <%= form.label :Estado_id, style: "display: block" %>
-    <%= form.text_field :Estado_id %>
+    <%= form.label :estado_id, style: "display: block" %>
+    <%= form.collection_select :estado_id, Estado.all, :id, :nombre, {prompt: "Estado al que pertenece:"} %>
   </div>
 
   <div>

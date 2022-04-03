@@ -1,14 +1,24 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Cities</h1>
-
-<div id="cities">
-  <% @cities.each do |city| %>
-    <%= render city %>
-    <p>
-      <%= link_to "Show this city", city %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New city", new_city_path %>
+<h1>Lista de Ciudades</h1>
+<table class="table table-success table-striped table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Mas opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cities.each do |city| %>
+      <tr>
+      <td><%= city.nombre %></td>
+      <td><%= city.Estado.nombre %></td>
+     <td>  <%= link_to "Ver mas", city %> |
+      <%= link_to "Editar", edit_city_path(city.id) %> |
+      <%= link_to "Eliminar", @city, method: :delete %>
+       </td>
+      </tr>
+   <% end %>
+   </tbody>
+</table>
+<%= link_to "Nueva ciudad", new_city_path, class:"btn btn-secondary" %>

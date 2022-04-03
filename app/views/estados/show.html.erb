@@ -3,8 +3,8 @@
 <%= render @estado %>
 
 <div>
-  <%= link_to "Edit this estado", edit_estado_path(@estado) %> |
-  <%= link_to "Back to estados", estados_path %>
+  <%= link_to "Editar", edit_estado_path(@estado) %> |
+  <%= link_to "Atras", estados_path %>
 
-  <%= button_to "Destroy this estado", @estado, method: :delete %>
+  <%= button_to "Eliminar", @estado, method: :delete %>
 </div>
