@@ -1,14 +1,30 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>States</h1>
+<h1>statuses List</h1>
+<table class="table table-success table-striped table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#Codigo</th>
+      <th scope="col">#Status</th>
+      <th scope="col">Proyectos</th>
+      <th scope="col">Mas opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @states.each do |state| %>
+      <tr>
+     
+      <td><%= state.codigo %></td>
+      <td><%= state.nombre %></td>
+      <td><%=  %></td>
+      <td>  <%= link_to "See more", state %> |
+      <%= link_to "Edit this state", edit_state_path(state.id) %> |
+      <%= link_to "Destroy this state", @state, method: :delete %>
+       </td>
+      </tr>
+   <% end %>
+   </tbody>
+</table>
 
-<div id="states">
-  <% @states.each do |state| %>
-    <%= render state %>
-    <p>
-      <%= link_to "Show this state", state %>
-    </p>
-  <% end %>
-</div>
 
-<%= link_to "New state", new_state_path %>
+    <%= link_to "New State", new_state_path, class:"btn btn-secondary" %>

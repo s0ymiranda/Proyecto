@@ -1,12 +1,14 @@
-<div id="<%= dom_id state %>">
-  <p>
-    <strong>Codigo:</strong>
-    <%= state.codigo %>
-  </p>
 
-  <p>
-    <strong>Nombre:</strong>
-    <%= state.nombre %>
-  </p>
+<table class="table table-success table-striped table-bordered">
+  <thead>
+    <tr>
+     <th scope="col">#Codigo</th>
+      <th scope="col">#Status</th>
+      <th scope="col">Proyectos</th>
+    </tr>
+  </thead>
+  <tbody>
+      <td><%= state.codigo %></td>
+      <td><%= state.nombre %></td>
 
-</div>
+</table>
