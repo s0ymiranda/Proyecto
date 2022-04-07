@@ -8,6 +8,9 @@ class StatesController < ApplicationController
 
   # GET /states/1 or /states/1.json
   def show
+    
+    @projects = Project.state_name(@state.nombre)
+    
   end
 
   # GET /states/new
