@@ -16,10 +16,12 @@
     <%= form.text_field :nombre %>
   </div>
 
-  <div>
-    <%= form.label :estado_id, style: "display: block" %>
-    <%= form.collection_select :estado_id, Estado.all, :id, :nombre, {prompt: "Estado al que pertenece:"} %>
+  <div class="field form-group">
+    <%= form.label :Estado_id, style: "display: block" %>
+    <%= form.collection_select :Estado_id, Estado.all, :id, :nombre, {prompt: "Estado al que pertenece"}, class:"form-select"%>
+        
   </div>
+<br>
 
   <div>
     <%= form.submit %>
