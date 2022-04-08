@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @project = Project.new(State_id: "Propuesta Generada") 
+    @project = Project.new(State_id: 1) 
   end
 
   # GET /projects/1/edit
