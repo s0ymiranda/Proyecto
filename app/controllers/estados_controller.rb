@@ -8,6 +8,7 @@ class EstadosController < ApplicationController
 
   # GET /estados/1 or /estados/1.json
   def show
+    @cities =  City.estado_nombre(@estado.nombre)
   end
 
   # GET /estados/new

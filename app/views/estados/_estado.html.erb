@@ -4,4 +4,17 @@
     <%= estado.nombre %>
   </p>
 
+<table class="table table-success table-striped table-bordered">
+  <thead>
+      <th scope="col">Ciudades:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cities.each do |city| %>
+      <tr>
+      <td> <%= city.nombre %> </td>
+      </tr>
+   <% end %>
+   </tbody>
+</table>
 </div>
