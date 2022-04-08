@@ -12,7 +12,7 @@ class StateProjectsController < ApplicationController
 
   # GET /state_projects/new
   def new
-    @state_project = StateProject.new
+    @state_project = StateProject.new(fecha_transicion:  DateTime.now.strftime('%Y-%m-%dT%H:%M')) 
   end
 
   # GET /state_projects/1/edit

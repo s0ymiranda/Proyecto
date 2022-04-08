@@ -13,12 +13,12 @@
 
   <div>
     <%= form.label :fecha_transicion, style: "display: block" %>
-    <%= form.datetime_field :fecha_transicion %>
+    <%= form.datetime_local_field :fecha_transicion %>
   </div>
 
   <div>
     <%= form.label :State_id, style: "display: block" %>
-    <%= form.text_field :State_id %>
+    <%= form.collection_select :State_id, State.all, :id, :nombre, class:"form-select" %>
   </div>
 
   <div>

@@ -16,7 +16,7 @@
      
       <td><%= state.codigo %></td>
       <td><%= state.nombre %></td>
-      <td><%=  %></td>
+      <td><%= Project.numeros(state.nombre) %></td>
       <td>  <%= link_to "See more", state %> |
       <%= link_to "Edit this state", edit_state_path(state.id) %> |
       <%= link_to "Destroy this state", @state, method: :delete %>
