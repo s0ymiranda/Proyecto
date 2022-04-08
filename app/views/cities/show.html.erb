@@ -17,8 +17,7 @@
 </table>
 
 <div>
+  <%= link_to "Atras", cities_path %> |
   <%= link_to "Editar", edit_city_path(@city) %> |
-  <%= link_to "Atras", cities_path %>
-
-  <%= button_to "Eliminar", @city, method: :delete %>
+  <%= link_to "Eliminar", city_path(@city), data: { turbo_method: :delete, turbo_confirm: "¿Estas seguro que deseas eliminar esta ciudad?" } %>
 </div>

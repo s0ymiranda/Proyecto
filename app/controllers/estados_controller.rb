@@ -26,7 +26,7 @@ class EstadosController < ApplicationController
 
     respond_to do |format|
       if @estado.save
-        format.html { redirect_to estado_url(@estado), notice: "Estado was successfully created." }
+        format.html { redirect_to estados_url, notice: "El estado se ha creado con exito" }
         format.json { render :show, status: :created, location: @estado }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class EstadosController < ApplicationController
   def update
     respond_to do |format|
       if @estado.update(estado_params)
-        format.html { redirect_to estado_url(@estado), notice: "Estado was successfully updated." }
+        format.html { redirect_to estado_url(@estado), notice: "El Estado se ha actualizado con exito." }
         format.json { render :show, status: :ok, location: @estado }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,12 +50,9 @@ class EstadosController < ApplicationController
 
   # DELETE /estados/1 or /estados/1.json
   def destroy
+    @estado = Estado.find(params[:id])
     @estado.destroy
-
-    respond_to do |format|
-      format.html { redirect_to estados_url, notice: "Estado was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to estados_url, status: :see_other, notice: "El Estado se ha eliminado"
   end
 
   private
