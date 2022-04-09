@@ -1,27 +1,10 @@
 <div id="<%= dom_id client %>">
-  <p>
-    <strong>Nombre:</strong>
-    <%= client.nombre %>
-  </p>
-
-  <p>
-    <strong>Rif:</strong>
-    <%= client.rif %>
-  </p>
-
-  <p>
-    <strong>Celular:</strong>
-    <%= client.celular %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= client.email %>
-  </p>
-
-  <p>
-    <strong>City:</strong>
-    <%= client.City_id %>
-  </p>
-
+  <tr>
+    <td><%= client.nombre%></td>
+    <td><%= client.rif %></td>
+    <td><%= client.celular %></td>
+    <td><%= client.email %></td>
+    <td><%= City.find_by_id(client.City_id).nombre %></td>
+    <td> <%= link_to "Ver mas", client %> </td>
+  </tr>
 </div>
