@@ -26,7 +26,7 @@ class CitiesController < ApplicationController
 
     respond_to do |format|
       if @city.save
-        format.html { redirect_to city_url(@city), notice: "City was successfully created." }
+        format.html { redirect_to cities_url, notice: "City was successfully created." }
         format.json { render :show, status: :created, location: @city }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -50,12 +50,9 @@ class CitiesController < ApplicationController
 
   # DELETE /cities/1 or /cities/1.json
   def destroy
+    @city = City.find(params[:id])
     @city.destroy
-
-    respond_to do |format|
-      format.html { redirect_to cities_url, notice: "City was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to cities_url, status: :see_other, notice: "La ciudad se ha eliminado"
   end
 
   private

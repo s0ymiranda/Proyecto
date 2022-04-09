@@ -17,14 +17,13 @@
       <td><%= state.codigo %></td>
       <td><%= state.nombre %></td>
       <td><%= Project.numeros(state.nombre) %></td>
-      <td>  <%= link_to "See more", state %> |
-      <%= link_to "Edit this state", edit_state_path(state.id) %> |
-      <%= link_to "Destroy this state", @state, method: :delete %>
+      <td>  <%= link_to "ver mas", state %> 
        </td>
       </tr>
    <% end %>
    </tbody>
 </table>
+<%= link_to "New state ", new_state_path %>
 
 
 

@@ -2,9 +2,22 @@
 
 <%= render @estado %>
 
+<table class="table table-success table-striped table-bordered">
+  <thead>
+      <th scope="col">Ciudades:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cities.each do |city| %>
+      <tr>
+      <td> <%= city.nombre %> </td>
+      </tr>
+   <% end %>
+   </tbody>
+</table>
+
 <div>
+  <%= link_to "Atras", estados_path %> |
   <%= link_to "Editar", edit_estado_path(@estado) %> |
-  <%= link_to "Atras", estados_path %>
-  
-  <%= button_to "Eliminar", @estado, method: :delete %>
+  <%= link_to "Eliminar", estado_path(@estado), data: { turbo_method: :delete, turbo_confirm: "¿Estas seguro que deseas eliminar este Estado?" } %>
 </div>

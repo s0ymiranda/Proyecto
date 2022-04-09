@@ -42,9 +42,10 @@
     <%= form.label :Client_id, style: "display: block" %>
     <%= form.collection_select :Client_id, Client.all, :id, :nombre, class:"form-select"%>
   </div>
-  <div>
+
+   <div>
     <%= form.label :State_id, style: "display: block" %>
-    <%= form.collection_select :State_id, State.all, :id, :nombre, class:"form-select" %>
+    <%= form.number_field :State_id  %>
   </div>
 
   <br>
