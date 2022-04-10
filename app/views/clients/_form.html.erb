@@ -35,7 +35,7 @@
     <%= form.label :City_id, style: "display: block" %>
     <%= form.collection_select :City_id, City.all, :id, :nombre, {prompt: "Ciudad al que pertenece"}, class:"form-select"%>
   </div>
-
+<br>
   <div>
     <%= form.submit %>
   </div>
