@@ -43,9 +43,9 @@
     <%= form.collection_select :Client_id, Client.all, :id, :nombre, class:"form-select"%>
   </div>
 
-   <div hidden >
-    <%= form.label :State_id, style: "display: block" %>
-    <%= form.text_field :State_id  %>
+   <div>
+    <%= form.label :Satate_id, style: "display: block" %>
+    <%= form.collection_select :State_id, State.all, :id, :nombre, class:"form-select"%>
   </div>
 
   <br>
