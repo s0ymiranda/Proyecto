@@ -15,7 +15,15 @@
   </thead>
   <tbody>
   <% @clients.each do |client| %>
-      <%= render client %>
+  <tr>
+    <td><%= client.nombre%></td>
+    <td><%= client.rif %></td>
+    <td><%= client.celular %></td>
+    <td><%= client.email %></td>
+    <td><%= City.find_by_id(client.City_id).nombre %></td>
+    <td> <%= link_to "Ver mas", client %> </td>
+  </tr>
+      <%#= render client %>
   <% end %>
   </tbody>
   

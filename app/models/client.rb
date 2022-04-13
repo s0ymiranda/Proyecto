@@ -8,4 +8,10 @@ class Client < ApplicationRecord
       @client = Client.where(city_id: city.id)
     end
   end
+
+#Mostrar El proyecto que pueda tener el cliente, verificando con su ID 
+  def self.proyecto_nombre(proyecto_nombre)
+    proyecto = Project.where(Client_id: proyecto_nombre)
+  end  
+
 end

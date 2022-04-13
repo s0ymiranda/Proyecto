@@ -1,6 +1,30 @@
+
 <p style="color: green"><%= notice %></p>
 
 <%= render @client %>
+
+
+
+<table class="table table-success table-striped table-bordered">
+  <thead>
+      <th scope="col">Proyectos</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Estado Del Proyecto</th>
+    </tr>
+  </thead>
+  <tbody>
+  <!--Condicional para validar la existencia de un proyecto que pueda tener el cliente-->
+    <%if !@proyecto.nil?%>
+      <% @proyecto.each do |p|%>
+      <tr>
+        <td><%=p.nombre%></td>
+        <td><%=p.fecha%></td>
+        <td><%=State.find_by_id(p.State_id).nombre%></td>
+      </tr>
+      <%end%>
+    <%end%>
+  </tbody>
+</table>
 
 <div>
   <%= link_to "Edit this client", edit_client_path(@client) %> |

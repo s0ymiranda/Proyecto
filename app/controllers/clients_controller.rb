@@ -8,6 +8,8 @@ class ClientsController < ApplicationController
 
   # GET /clients/1 or /clients/1.json
   def show
+    #Mostrar los proyectos que pueda tener ese cliente
+    @proyecto = Client.proyecto_nombre(@client.id)
   end
 
   # GET /clients/new

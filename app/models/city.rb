@@ -8,4 +8,5 @@ class City < ApplicationRecord
       @cities = City.where(estado_id: estado.id)
     end
   end
+
 end
