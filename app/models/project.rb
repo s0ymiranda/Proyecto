@@ -9,13 +9,6 @@ class Project < ApplicationRecord
       @projects = Project.where(state_id: estado.id)      
     end
   end
-  
-  def self.numeros(state_nombre)
-    estado = State.find_by_nombre(state_nombre)
-    @i = 0
-    if !estado.nil?  
-      @projects = Project.where(state_id: estado.id)
-      @i += 1
-    end
-  end
+
+
 end
