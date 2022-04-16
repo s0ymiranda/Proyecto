@@ -25,7 +25,7 @@
       <td><%= project.descripcion %></td>
       <td><%= project.Client.nombre %></td>
       <td><%= project.State.nombre %> <%= link_to "actualizar estatus", state_projects_path %> </td>
-      <td> 
+      <td> <%= link_to 'status', "/projects/status/#{project.id}"%>
       <%= link_to "Editar", edit_project_path(project.id) %> |
       <%= link_to "Eliminar", project_path(project.id), data: { turbo_method: :delete, turbo_confirm: "¿Estas seguro que deseas eliminar este Proyecto?" } %>
        </td>
