@@ -1,0 +1,21 @@
+  <p>
+    <strong>Proyecto:</strong>
+    <%= @project.nombre %>
+  </p>
+
+
+<table class="table table-success table-striped table-bordered">
+  <thead>
+      <th scope="col">Estatus</th>
+      <th scope="col">Fecha de Transicion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @state_projects.each do |status| %>
+      <tr>
+      <td> <%= status.State.nombre %> </td>
+      <td> <%= status.fecha_transicion %> </td>
+      </tr>
+   <% end %>
+   </tbody>
+</table>

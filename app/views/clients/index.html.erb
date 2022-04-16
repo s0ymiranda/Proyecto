@@ -10,7 +10,7 @@
     <th>Telefono</th>
     <th>Correo Electrónico</th>
     <th>Ciudad</th>
-    <th>Editar</th>
+    <th>Mas Opciones</th>
   </tr>
   </thead>
   <tbody>
@@ -21,7 +21,10 @@
     <td><%= client.celular %></td>
     <td><%= client.email %></td>
     <td><%= City.find_by_id(client.City_id).nombre %></td>
-    <td> <%= link_to "Ver mas", client %> </td>
+    <td> <%= link_to "Ver mas", client %> |
+     <%= link_to "Editar", edit_client_path(client.id) %> |
+     
+        <%= link_to "Eliminar", client_path(client.id), data: { turbo_method: :delete, turbo_confirm: "¿Estas seguro que deseas eliminar este cliente" } %> </td>
   </tr>
       <%#= render client %>
   <% end %>

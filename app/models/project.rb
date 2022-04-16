@@ -10,5 +10,9 @@ class Project < ApplicationRecord
     end
   end
 
-
+  def self.change_state(state_id, project_id)
+    @state_project = StateProject.create(:State_id => state_id, :Project_id => project_id,
+    :fecha_transicion => Time.now)  
+  end
+  
 end

@@ -19,4 +19,7 @@
       <td><%= project.Client.nombre %></td>
       <td><%= project.State.nombre %></td>
       </tbody>
+      <div hidden>
+       <%= @state_project = Project.change_state(project.State_id,project.id)%>
+       </div>
 </table>
