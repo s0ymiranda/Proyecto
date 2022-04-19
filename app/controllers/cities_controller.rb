@@ -26,7 +26,7 @@ class CitiesController < ApplicationController
 
     respond_to do |format|
       if @city.save
-        format.html { redirect_to cities_url, notice: "City was successfully created." }
+        format.html { redirect_to cities_url, notice: "La ciudad se ha creado con exito." }
         format.json { render :show, status: :created, location: @city }
       else
         format.html { render :new, status: :unprocessable_entity }

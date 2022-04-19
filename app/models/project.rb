@@ -3,6 +3,11 @@ class Project < ApplicationRecord
   belongs_to :Client
   has_many :state_projects
 
+  validates :nombre, presence: true, uniqueness: true 
+  validates :codigo, presence: true 
+  validates :monto, presence: true
+  validates :descripcion, presence: true
+
   def self.state_name(state_nombre)
     estado = State.find_by_nombre(state_nombre)
     if !estado.nil?

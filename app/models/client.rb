@@ -2,6 +2,11 @@ class Client < ApplicationRecord
   belongs_to :City
   has_many :projects
 
+  validates :nombre, presence: true, uniqueness: true 
+  validates :rif, presence: true, uniqueness: true 
+  validates :celular, presence: true, uniqueness: true 
+  validates :email, presence: true, uniqueness: true 
+
   def self.city_nombre(city_nombre)
     city = City.find_by_nombre(city_nombre)
     if !city.nil?
