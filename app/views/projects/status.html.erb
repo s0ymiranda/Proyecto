@@ -14,7 +14,7 @@
     <% @state_projects.each do |status| %>
       <tr>
       <td> <%= status.State.nombre %> </td>
-      <td> <%= status.fecha_transicion %> </td>
+      <td style="text-transform:Capitalize;"> <%= localize status.fecha_transicion, format: "%d/%B/%Y" %> </td>
       </tr>
    <% end %>
    </tbody>

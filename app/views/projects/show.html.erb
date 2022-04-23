@@ -1,12 +1,8 @@
-
-
 <%= render @project %>
-
-
 
 
 <div>
   <%= link_to "Back to projects", projects_path %> |
   <%= link_to "Edit this project", edit_project_path(@project) %> |
-  <%= link_to "Eliminar", project_path(@project), data: { turbo_method: :delete, turbo_confirm: "¿Estas seguro que deseas eliminar este proyectos?" } %>
+  <%= link_to "Eliminar", project_path(@project), data: { turbo_method: :delete, turbo_confirm: "¿Estas seguro que deseas eliminar este proyecto?" } %>
 </div>
