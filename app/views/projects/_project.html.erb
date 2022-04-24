@@ -15,7 +15,12 @@
       <td><%= project.codigo %></td>
       <td><%= project.nombre %></td>
       <td style="text-transform:Capitalize;"><%= localize project.created_at, format: "%d/%B/%Y" %></td>
-      <td><%= distance_of_time_in_words_to_now(@project.created_at) %></td>
+      <td style="text-transform:Capitalize;"><%= if project.State.codigo != 80 && project.State.codigo != 1
+        distance_of_time_in_words_to_now (project.created_at)
+      else
+        ultima_fecha = StateProject.where(Project_id: project.id).last.fecha_transicion
+        distance_of_time_in_words(project.created_at, ultima_fecha)
+      end %></td>
       <td><%= project.monto %></td>
       <td><%= project.descripcion %></td>
       <td><%= project.Client.nombre %></td>

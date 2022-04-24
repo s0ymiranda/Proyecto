@@ -3,8 +3,8 @@ class Project < ApplicationRecord
   belongs_to :Client
   has_many :state_projects
 
-  validates :nombre, presence: true, uniqueness: true 
-  validates :codigo, presence: true 
+  validates :nombre, presence: true
+  validates :codigo, presence: true, uniqueness: true
   validates :monto, presence: true
   validates :descripcion, presence: true
 
@@ -18,6 +18,5 @@ class Project < ApplicationRecord
   def self.change_state(state_id, project_id)
     @state_project = StateProject.create(:State_id => state_id, :Project_id => project_id,
     :fecha_transicion => Time.now)  
-  end
-  
+  end 
 end

@@ -2,7 +2,7 @@ class Client < ApplicationRecord
   belongs_to :City
   has_many :projects
 
-  validates :nombre, presence: true, uniqueness: true 
+  validates :nombre, presence: true
   validates :rif, presence: true, uniqueness: true 
   validates :celular, presence: true, uniqueness: true 
   validates :email, presence: true, uniqueness: true 
