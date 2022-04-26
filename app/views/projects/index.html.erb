@@ -31,9 +31,11 @@
       <td><%= project.monto %></td>
       <td><%= project.descripcion %></td>
       <td><%= project.Client.nombre %></td>
-      <td><%= project.State.nombre %> <%= link_to "Actualizar", edit_project_path(project.id) %>  </td>
-      <td> <%= link_to ' Ver Estados', "/projects/status/#{project.id}"%> |
-           <%= link_to "Ver mas", project %> 
+      <td> <%= project.State.nombre %>
+      <%if project.State.nombre != "Propuesta Desaprobada" && project.State.nombre != "Proyecto Entregado" %>
+        <%= link_to "Actualizar", edit_project_path(project.id) %>  
+      <% end %> </td>
+      <td> <%= link_to ' Ver Estados', "/projects/status/#{project.id}"%> 
        </td>
       </tr>
    <% end %>

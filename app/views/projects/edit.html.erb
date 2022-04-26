@@ -12,17 +12,49 @@
   <% end %> 
    
    
-   <div  >
+   <% if @project.State_id == 1 %>
     <%= form.label :State_id, style: "display: block" %>
-    <%= form.text_field :State_id  %>
+    <%= form.select :State_id, [['Seleccionar', nil], ['Propuesta Desaprobada', 2],  ['Propuesta Aprobada',3]] %>
+   <% end %>
+
+   <div hidden >
+ 
+   <% if @project.State.nombre == "Propuesta Aprobada" %>
+    <%= form.label :State_id, style: "display: block" %>
+    <%= form.select :State_id , [['Contrato Firmado', 4 ]] %>
+   <% end %>
+
+   <% if @project.State.nombre == "Contrato Firmado" %>
+    <%= form.label :State_id, style: "display: block" %>
+    <%= form.select :State_id , [['Requisitos Levantados', 5 ]] %>
+   <% end %>
+   <% if @project.State.nombre == "Requisitos Levantados" %>
+    <%= form.label :State_id, style: "display: block" %>
+    <%= form.select :State_id , [['Proyecto Diseñado', 6 ]] %>
+   <% end %>
+
+   <% if @project.State.nombre == "Proyecto Diseñado" %>
+    <%= form.label :State_id, style: "display: block" %>
+    <%= form.select :State_id , [['Proyecto Programado', 7 ]] %>
+   <% end %>
+      <% if @project.State.nombre == "Proyecto Programado" %>
+    <%= form.label :State_id, style: "display: block" %>
+    <%= form.select :State_id , [['Proyecto Probado', 8 ]] %>
+   <% end %>
+
+   <% if @project.State.nombre == "Proyecto Probado" %>
+    <%= form.label :State_id, style: "display: block" %>
+    <%= form.select :State_id , [['Proyecto Entregado', 9 ]] %>
+   <% end %>
+
+
   </div>
     <div>
-    <%= form.submit %>
+    <%= form.submit 'Actualizar Proyecto' %> 
   </div>
 <% end %>
 
 <div>
-  <%= link_to "Show this project", @project %> |
   <%= link_to "Back to projects", projects_path %>
 </div>
 
