@@ -20,5 +20,10 @@ class Project < ApplicationRecord
     :fecha_transicion => Time.now)  
   end 
 
-
+  def self.client_delete(client_id)
+    if Project.Client_id != client_id
+      return true
+    else return false
+    end
+  end
 end

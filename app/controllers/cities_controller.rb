@@ -40,7 +40,7 @@ class CitiesController < ApplicationController
   def update
     respond_to do |format|
       if @city.update(city_params)
-        format.html { redirect_to city_url(@city), notice: "City was successfully updated." }
+        format.html { redirect_to city_url(@city), notice: "La ciudad se ha editado." }
         format.json { render :show, status: :ok, location: @city }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class CitiesController < ApplicationController
   def destroy
     @city = City.find(params[:id])
     @city.destroy
-    redirect_to cities_url, status: :see_other, notice: "La ciudad se ha eliminado"
+    redirect_to cities_url, status: :see_other, notice: "La ciudad se ha eliminado."
   end
 
   private

@@ -10,7 +10,7 @@
       <th scope="col">Valor</th>
       <th scope="col">Descripcion </th>
       <th scope="col">Cliente </th>
-      <th scope="col">Estatus Actual </th>
+      <th scope="col">Estado Actual </th>
       <th scope="col">Mas</th>
     </tr>
   </thead>
@@ -31,7 +31,7 @@
       <td><%= project.descripcion %></td>
       <td><%= project.Client.nombre %></td>
       <td> <%= project.State.nombre %>
-      <%if project.State.nombre != "Propuesta Desaprobada" && project.State.nombre != "Proyecto Entregado" %>
+      <% if project.State.codigo != 80 && project.State.codigo != 1 %>
         <%= link_to "Actualizar", edit_project_path(project.id) %>  
       <% end %> </td>
       <td> <%= link_to ' Ver Estados', "/projects/status/#{project.id}"%> 

@@ -9,7 +9,7 @@
       <th scope="col">Codigo</th>
       <th scope="col">Estatus</th>
       <th scope="col">Proyectos</th>
-      <th scope="col">Monto Total</th>
+      <th scope="col">Monto total</th>
       <th scope="col">Mas opciones</th>
     </tr>
   </thead>
@@ -21,7 +21,7 @@
       <td><%= state.nombre %></td>
       <td><%= Project.where(state_id: state.id).count %></td>
       <td> <%=State.MontoTotal(Project.all,state.id)%></td>
-      <td>  <%= link_to "ver mas", state %></td>
+      <td>  <%= link_to "Ver mas", state %></td>
       <% end %>
 
    </tbody>

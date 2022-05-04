@@ -6,7 +6,7 @@
   <thead>
   <tr>
     <th>Nombre</th>
-    <th>CI</th>
+    <th>C.I / Rif</th>
     <th>Telefono</th>
     <th>Correo Electrónico</th>
     <th>Ciudad</th>
@@ -24,8 +24,8 @@
     <td><%= link_to "Ver mas", client %> |
         <%= link_to "Editar", edit_client_path(client.id) %> 
         
-        <% if Project.where(Client_id: client.id) == [] %> | 
-          <%= link_to "Eliminar", client_path(client.id), data: { turbo_method: :delete, turbo_confirm: "¿Estas seguro que deseas eliminar este cliente" } %> </td>
+        <% if Project.where(Client_id: client.id) == [] %> 
+          |<%= link_to "Eliminar", client_path(client.id), data: { turbo_method: :delete, turbo_confirm: "¿Estas seguro que deseas eliminar este cliente" } %> </td>
         <%end%>
  
   </tr>

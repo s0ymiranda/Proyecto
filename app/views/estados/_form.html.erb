@@ -1,7 +1,7 @@
 <%= form_with(model: estado) do |form| %>
   <% if estado.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(estado.errors.count, "error") %> prohibited this estado from being saved:</h2>
+      <h2><%= pluralize(estado.errors.count, "error") %> Error al guardar:</h2>
 
       <ul>
         <% estado.errors.each do |error| %>

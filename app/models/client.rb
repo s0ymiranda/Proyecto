@@ -19,4 +19,11 @@ class Client < ApplicationRecord
     proyecto = Project.where(Client_id: proyecto_nombre)
   end  
 
+  def self.client_delete(client_id)
+    if Project.Client_id != client_id
+      return true
+    else return false
+    end
+  end
+
 end

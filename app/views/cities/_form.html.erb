@@ -1,7 +1,7 @@
 <%= form_with(model: city) do |form| %>
   <% if city.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(city.errors.count, "error") %> prohibited this city from being saved:</h2>
+      <h2><%= pluralize(city.errors.count, "error") %> Error al guardar:</h2>
 
       <ul>
         <% city.errors.each do |error| %>
@@ -13,12 +13,12 @@
 
   <div>
     <%= form.label :nombre, style: "display: block" %>
-    <%= form.text_field :nombre %>
+    <%= form.text_field :nombre%>
   </div>
 
-  <div class="field form-group">
+  <div style="width:180px">
     <%= form.label :Estado_id, style: "display: block" %>
-    <%= form.collection_select :Estado_id, Estado.all, :id, :nombre, {prompt: "Estado al que pertenece"}, class:"form-select"%>
+    <%= form.collection_select :Estado_id, Estado.all, :id, :nombre, {prompt: "Seleccionar"}, class:"form-select"%>
         
   </div>
 <br>
