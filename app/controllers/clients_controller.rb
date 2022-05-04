@@ -24,7 +24,7 @@ class ClientsController < ApplicationController
   # POST /clients or /clients.json
   def create
     @client = Client.new(client_params)
-    @client.nombre = params[:client][:nombre].capitalize
+    @client.nombre = params[:client][:nombre].titleize
     respond_to do |format|
       if @client.save
         format.html { redirect_to client_url(@client), notice: "El cliente se ha guardado con exito." }
