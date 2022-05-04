@@ -8,6 +8,8 @@ class ClientsController < ApplicationController
 
   # GET /clients/1 or /clients/1.json
   def show
+    #Mostrar los proyectos que pueda tener ese cliente
+    @proyecto = Client.proyecto_nombre(@client.id)
   end
 
   # GET /clients/new
@@ -22,10 +24,10 @@ class ClientsController < ApplicationController
   # POST /clients or /clients.json
   def create
     @client = Client.new(client_params)
-
+    @client.nombre = params[:client][:nombre].titleize
     respond_to do |format|
       if @client.save
-        format.html { redirect_to client_url(@client), notice: "Client was successfully created." }
+        format.html { redirect_to client_url(@client), notice: "El cliente se ha guardado con exito." }
         format.json { render :show, status: :created, location: @client }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +40,7 @@ class ClientsController < ApplicationController
   def update
     respond_to do |format|
       if @client.update(client_params)
-        format.html { redirect_to client_url(@client), notice: "Client was successfully updated." }
+        format.html { redirect_to client_url(@client), notice: "El cliente se ha editado con exito." }
         format.json { render :show, status: :ok, location: @client }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +54,7 @@ class ClientsController < ApplicationController
     @client.destroy
 
     respond_to do |format|
-      format.html { redirect_to clients_url, notice: "Client was successfully destroyed." }
+      format.html { redirect_to clients_url, notice: "El cliente eliminado." }
       format.json { head :no_content }
     end
   end

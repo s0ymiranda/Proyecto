@@ -1,0 +1,54 @@
+<table class="table table-success table-striped table-bordered">
+  <thead>
+    <tr>
+      
+      <th scope="col">Nombre</th>
+      <th scope="col">Inicio</th>
+      <th scope="col">Tiempo Transcurrido</th>
+      <th scope="col">Valor</th>
+     
+      <th scope="col">Cliente </th>
+      <th scope="col">Estado Actual </th>
+    </tr>
+  </thead>
+  <tbody>
+      
+      <td><%= @project.nombre %></td>
+      <td style="text-transform:Capitalize;"><%= localize @project.created_at, format: "%d/%B/%Y" %></td>
+      <td style="text-transform:Capitalize;"><%= if @project.State.codigo != 80 && @project.State.codigo != 1
+        distance_of_time_in_words_to_now (@project.created_at)
+      else
+        ultima_fecha = StateProject.where(Project_id: @project.id).last.fecha_transicion
+        distance_of_time_in_words(@project.created_at, ultima_fecha)
+      end %></td>
+      <td><%= @project.monto %></td>
+     
+      <td><%= @project.Client.nombre %></td>
+      <td><%= @project.State.nombre %></td>
+      </tbody>
+
+</table>
+
+
+
+<table class="table table-success table-striped table-bordered">
+  <thead>
+      <th scope="col">Estado</th>
+      <th scope="col">Fecha de Transicion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @state_projects.each do |status| %>
+      <tr>
+      <td> <%= status.State.nombre %> </td>
+      <td style="text-transform:Capitalize;"> <%= localize status.fecha_transicion, format: "%d/%B/%Y" %> </td>
+      </tr>
+   <% end %>
+   </tbody>
+</table>
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <%= link_to "Volver a Proyectos", projects_path, class: "btn btn-secondary btn-sm"%>
+</div>
+<br>
+<br>

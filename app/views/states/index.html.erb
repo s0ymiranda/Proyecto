@@ -1,14 +1,32 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>States</h1>
 
-<div id="states">
-  <% @states.each do |state| %>
-    <%= render state %>
-    <p>
-      <%= link_to "Show this state", state %>
-    </p>
-  <% end %>
-</div>
+<h1>Reportes</h1>
 
-<%= link_to "New state", new_state_path %>
+<table class="table table-success table-striped table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Codigo</th>
+      <th scope="col">Estatus</th>
+      <th scope="col">Proyectos</th>
+      <th scope="col">Monto total</th>
+      <th scope="col">Mas opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @states.each do |state| %>
+      <tr>
+     
+      <td><%= state.codigo %></td>
+      <td><%= state.nombre %></td>
+      <td><%= Project.where(state_id: state.id).count %></td>
+      <td> <%=State.MontoTotal(Project.all,state.id)%></td>
+      <td>  <%= link_to "Ver mas", state %></td>
+      <% end %>
+
+   </tbody>
+</table>
+
+
+
+

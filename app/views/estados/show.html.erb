@@ -2,9 +2,20 @@
 
 <%= render @estado %>
 
-<div>
-  <%= link_to "Edit this estado", edit_estado_path(@estado) %> |
-  <%= link_to "Back to estados", estados_path %>
+<table class="table table-success table-striped table-bordered">
+  <thead>
+      <th scope="col">Ciudades:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cities.each do |city| %>
+      <tr>
+      <td> <%= city.nombre %> </td>
+      </tr>
+   <% end %>
+   </tbody>
+</table>
 
-  <%= button_to "Destroy this estado", @estado, method: :delete %>
+<div>
+  <%= link_to "Volver a Estados", estados_path, class: "btn btn-secondary btn-sm" %> 
 </div>

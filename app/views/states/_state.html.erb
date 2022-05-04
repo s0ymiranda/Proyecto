@@ -1,12 +1,18 @@
-<div id="<%= dom_id state %>">
-  <p>
-    <strong>Codigo:</strong>
-    <%= state.codigo %>
-  </p>
 
-  <p>
-    <strong>Nombre:</strong>
-    <%= state.nombre %>
-  </p>
+<h1> <%= state.nombre %> </h1>
+<table class= "table table-success table-striped table-bordered">
+  <thead>
+      <th scope="col">Proyectos</th>
+    </tr>
+  </thead>
+  <tbody>
+ <div style = "visibility: hidden"><%= i = 0  %> </div> 
+    <% @projects.each do |project| %>
+      <tr>
+        <td> <%=  project.nombre %> </td>
+      </tr>
+   <% end %>
+   </tbody>
+   
+</table>
 
-</div>

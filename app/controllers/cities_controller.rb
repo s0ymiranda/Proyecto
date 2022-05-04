@@ -8,6 +8,7 @@ class CitiesController < ApplicationController
 
   # GET /cities/1 or /cities/1.json
   def show
+    @clients =  Client.city_nombre(@city.nombre)
   end
 
   # GET /cities/new
@@ -22,10 +23,11 @@ class CitiesController < ApplicationController
   # POST /cities or /cities.json
   def create
     @city = City.new(city_params)
+    @city.nombre = params[:city][:nombre].titleize
 
     respond_to do |format|
       if @city.save
-        format.html { redirect_to city_url(@city), notice: "City was successfully created." }
+        format.html { redirect_to cities_url, notice: "La ciudad se ha creado con exito." }
         format.json { render :show, status: :created, location: @city }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +40,7 @@ class CitiesController < ApplicationController
   def update
     respond_to do |format|
       if @city.update(city_params)
-        format.html { redirect_to city_url(@city), notice: "City was successfully updated." }
+        format.html { redirect_to city_url(@city), notice: "La ciudad se ha editado." }
         format.json { render :show, status: :ok, location: @city }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -49,12 +51,9 @@ class CitiesController < ApplicationController
 
   # DELETE /cities/1 or /cities/1.json
   def destroy
+    @city = City.find(params[:id])
     @city.destroy
-
-    respond_to do |format|
-      format.html { redirect_to cities_url, notice: "City was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to cities_url, status: :see_other, notice: "La ciudad se ha eliminado."
   end
 
   private

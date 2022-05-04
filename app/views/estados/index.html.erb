@@ -1,14 +1,25 @@
 <p style="color: green"><%= notice %></p>
+<h1>Lista de Estados</h1>
+<table class="table table-success table-striped table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Mas opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @estados.each do |estado| %>
+      <tr>
+        <td><%= estado.nombre %></td>
+        <td>  <%= link_to "Ver mas", estado %> |
+      <%= link_to "Editar", edit_estado_path(estado.id) %> 
+      <% if City.where(Estado_id: estado.id) == [] %> |
+      <%= link_to "Eliminar", estado_path(estado.id), data: { turbo_method: :delete, turbo_confirm: "¿Estas seguro que deseas eliminar este Estado?" } %>
+       <%end %>
+       </td>
+      </tr>
+   <% end %>
+   </tbody>
+</table>
 
-<h1>Estados</h1>
-
-<div id="estados">
-  <% @estados.each do |estado| %>
-    <%= render estado %>
-    <p>
-      <%= link_to "Show this estado", estado %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New estado", new_estado_path %>
+<%= link_to "Nuevo Estado", new_estado_path, class:"btn btn-secondary" %>
