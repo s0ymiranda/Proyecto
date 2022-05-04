@@ -22,11 +22,11 @@
     <td><%= client.email %></td>
     <td><%= City.find_by_id(client.City_id).nombre %></td>
     <td><%= link_to "Ver mas", client %> |
-        <%= link_to "Editar", edit_client_path(client.id) %> | 
+        <%= link_to "Editar", edit_client_path(client.id) %> 
         
-        
-        <%= link_to "Eliminar", client_path(client.id), data: { turbo_method: :delete, turbo_confirm: "¿Estas seguro que deseas eliminar este cliente" } %> </td>
-        
+        <% if Project.where(Client_id: client.id) == [] %> | 
+          <%= link_to "Eliminar", client_path(client.id), data: { turbo_method: :delete, turbo_confirm: "¿Estas seguro que deseas eliminar este cliente" } %> </td>
+        <%end%>
  
   </tr>
       

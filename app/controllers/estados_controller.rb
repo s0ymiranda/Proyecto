@@ -23,7 +23,8 @@ class EstadosController < ApplicationController
   # POST /estados or /estados.json
   def create
     @estado = Estado.new(estado_params)
-
+    @estado.nombre = params[:estado][:nombre].capitalize
+    
     respond_to do |format|
       if @estado.save
         format.html { redirect_to estados_url, notice: "El estado se ha creado con exito" }

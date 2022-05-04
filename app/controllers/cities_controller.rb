@@ -23,6 +23,7 @@ class CitiesController < ApplicationController
   # POST /cities or /cities.json
   def create
     @city = City.new(city_params)
+    @city.nombre = params[:city][:nombre].capitalize
 
     respond_to do |format|
       if @city.save

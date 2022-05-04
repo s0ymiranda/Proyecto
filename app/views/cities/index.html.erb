@@ -14,8 +14,11 @@
       <td><%= city.nombre %></td>
       <td><%= city.Estado.nombre %></td>
      <td>  <%= link_to "Ver mas", city %> |
-        <%= link_to "Editar", edit_city_path(city.id) %> |
+        <%= link_to "Editar", edit_city_path(city.id) %> 
+        
+        <% if Client.where(City_id: city.id) == [] %>|
         <%= link_to "Eliminar", city_path(city.id), data: { turbo_method: :delete, turbo_confirm: "¿Estas seguro que deseas eliminar esta ciudad?" } %>
+        <% end %>
       </td>
       </tr>
    <% end %>
