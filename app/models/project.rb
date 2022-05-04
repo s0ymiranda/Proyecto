@@ -19,11 +19,5 @@ class Project < ApplicationRecord
     @state_project = StateProject.create(:State_id => state_id, :Project_id => project_id,
     :fecha_transicion => Time.now)  
   end 
-
-  def self.client_delete(client_id)
-    if Project.Client_id != client_id
-      return true
-    else return false
-    end
-  end
+  
 end

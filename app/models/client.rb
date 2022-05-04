@@ -14,16 +14,9 @@ class Client < ApplicationRecord
     end
   end
 
-#Mostrar El proyecto que pueda tener el cliente, verificando con su ID 
+ #Mostrar El proyecto que pueda tener el cliente, verificando con su ID 
   def self.proyecto_nombre(proyecto_nombre)
     proyecto = Project.where(Client_id: proyecto_nombre)
   end  
-
-  def self.client_delete(client_id)
-    if Project.Client_id != client_id
-      return true
-    else return false
-    end
-  end
 
 end

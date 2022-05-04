@@ -11,13 +11,12 @@
       <th scope="col">Descripcion </th>
       <th scope="col">Cliente </th>
       <th scope="col">Estado Actual </th>
-      <th scope="col">Mas</th>
+      <th scope="col">Ver mas</th>
     </tr>
   </thead>
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-     
       <td><%= project.codigo %></td>
       <td><%= project.nombre %></td>
       <td style="text-transform:Capitalize;"><%= localize project.created_at, format: "%d/%b/%Y" %></td>
