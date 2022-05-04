@@ -23,7 +23,7 @@ class EstadosController < ApplicationController
   # POST /estados or /estados.json
   def create
     @estado = Estado.new(estado_params)
-    @estado.nombre = params[:estado][:nombre].capitalize
+    @estado.nombre = params[:estado][:nombre].titleize
     
     respond_to do |format|
       if @estado.save
